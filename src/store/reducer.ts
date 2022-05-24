@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia'
+import { ReducerShape } from '../types/interfaces'
 
 export const useReducer = defineStore('reducer', {
-  state: () => ({
+  state: (): ReducerShape => ({
     total: 0,
     extraVal: 0
   }),
@@ -10,7 +11,7 @@ export const useReducer = defineStore('reducer', {
       this.total = 0
       this.extraVal = 0
     },
-    addExtraVal(num) {
+    addExtraVal(num: number) {
       this.extraVal += num
     },
     reduceVal() {

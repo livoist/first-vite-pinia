@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia'
+import { CounterShape } from '../types/interfaces'
 
 export const useCounterStore = defineStore('counter', {
-  state: () => ({
+  state: (): CounterShape => ({
     counter: 0
   }),
   getters: {
@@ -13,7 +14,7 @@ export const useCounterStore = defineStore('counter', {
     resetCounter() {
       this.counter = 0
     },
-    mergeVal(reduceResult) {
+    mergeVal(reduceResult: number) {
       this.counter += reduceResult
     },
     updateCounter() {

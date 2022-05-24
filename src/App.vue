@@ -1,9 +1,10 @@
-<script>
+<script lang="ts">
 import { defineComponent, reactive } from 'vue'
 import { storeToRefs } from 'pinia'
 import Buttons from './components/Buttons.vue'
-import { useCounterStore } from '../store/counter'
-import { useReducer } from '../store/reducer'
+import { useCounterStore } from './store/counter'
+import { useReducer } from './store/reducer'
+import { ButtonConfig } from './types/interfaces'
 
 export default defineComponent({
   name: "App",
@@ -17,15 +18,16 @@ export default defineComponent({
     const { reduceVal, addExtraVal, resetVal } = reducerStore
 
 
-    const btnConfig1 = reactive({
-      buttonType: 'primary', buttonText: 'add 10'
+    const btnConfig1: ButtonConfig = reactive({
+      buttonType: 'primary',
+      buttonText: 'add 10'
     })
 
-    const btnConfig2 = reactive({
+    const btnConfig2: ButtonConfig = reactive({
       buttonType: 'secondary', buttonText: 'add 50'
     })
 
-    const btnConfig3 = reactive({
+    const btnConfig3: ButtonConfig = reactive({
       buttonType: 'alert', buttonText: 'add 100'
     })
 
